@@ -1,0 +1,45 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Multiple user login</title>
+  </head>
+  <body>
+  
+
+    <span class="text">
+        {% if msg %}
+            {{ msg | safe }}
+        {% else %}
+            Login page
+        {% endif %}
+        </span>
+            <form  method="post">
+                {% csrf_token %}
+            <div class="form-group first">
+                <label for="username">Username</label>
+                    {{ form.username }}
+            </div>
+            <div class="form-group">
+                    <label for="username">Password</label>
+                    {{ form.password }}
+                </div>
+
+                <div>
+                    <label><span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                </div>
+
+                  <input type="submit" value="Log In">
+                </form>
+    
+
+
+    
+</html>

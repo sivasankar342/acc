@@ -1,0 +1,53 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+       <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+    <title>Multiple user login</title>
+  </head>
+  <body>
+  <h1> Registration page</h1>
+    <span class="text">
+      {% if msg %}
+        {{ msg | safe }}
+      {% else %}
+        Login page
+      {% endif %}
+  </span>
+    <form  method="post">
+          {% csrf_token %}
+       
+      <label for="username">Username</label>
+          {{ form.username }}<br>
+      <label for="email">Email</label>
+          {{ form.email}}
+      
+                  
+                  
+        <label for="password">Password</label>
+          {{ form.password1 }}<br>
+          <label for="password">confirm Password</label>
+            {{ form.password2 }}
+              <label class="control control--check"><span class="caption">user</span>
+                        {{ form.is_user}}
+                      
+                    </label>
+                
+                    <label class="control control--checkbox mb-0"><span class="caption">dealer</span>
+                        {{ form.is_dealer }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+            
+                    <span class="text-error">{{ form.errors }}</span>
+                  <input type="submit"  value="Register">
+                </form>
+              
+
+
+    
+  </body>
+</html>
